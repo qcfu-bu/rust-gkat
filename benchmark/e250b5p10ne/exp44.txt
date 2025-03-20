@@ -64,8 +64,7 @@
         (while (not b3) (seq (seq p6 p7) (if (or b2 b10) p7 p3))))
       (seq (seq p3 p7) p3 p9) (seq p5 p0) (if b6 p14 p95))
     (seq
-      (while (or b10 (and b10 b7)) (seq (seq p0 p2) (test 1) p5))
-      (if b10 p6 p74) (test 1) p6)
+      (while (or b10 (and b10 b7)) (seq (seq p0 p2) p5)) (if b10 p6 p74) p6)
     (seq (seq p1 p6) p1 p92) (seq p1 p6) p19 p1)
   (while (and b7 b8 b1)
     (seq
@@ -84,7 +83,7 @@
       (seq (seq p0 p9) p4 p8) (if (or b6 (not b8)) p9 p2) p32 p3)
     (seq
       (seq
-        (if (or (not b9) (not b4)) (seq p4 p6) (seq p7 p5)) (seq p8 (test 1))
+        (if (or (not b9) (not b4)) (seq p4 p6) (seq p7 p5)) p8
         (if (not (and (and b8 b1) (not b10))) p21 p4))
       (if b2 (seq (seq p31 p0) p9 p7)
         (while (not (and (not b6) b2)) (seq (seq p4 p1) p1 p0))))))
@@ -96,7 +95,7 @@
         (seq
           (seq
             (seq (seq p0 p5) (if (and (or b3 b2) (or b4 b8)) p0 p3))
-            (if (and (or b6 b2) (not b10)) (seq p5 p1) (seq (test 1) p5)))
+            (if (and (or b6 b2) (not b10)) (seq p5 p1) p5))
           (seq (seq p9 p3) (if (or (and b8 b6) (and b9 b2)) p4 p76))
           (if (or (not b3) (not b6)) (seq p81 p8)
             (if (or (and b1 b5) b5) p0 p0)))
@@ -109,8 +108,8 @@
           p89 p8)
         (seq (seq p8 p8) (if (and (or b6 b2) (or b8 b9)) p3 p4))
         (while b2 (seq (seq p1 p6) (if (and b5 b1 b2) p1 p26))))
-      (seq (seq (seq p2 p5) (if b9 p8 p7)) (seq (test 1) p2) p73 (test 1))
-      (seq (seq p72 p5) p0 p2) (seq p2 (test 1)) p9 p71)
+      (seq (seq (seq p2 p5) (if b9 p8 p7)) p2 p73) (seq (seq p72 p5) p0 p2)
+      p2 p9 p71)
     (seq
       (while (and (not b3) b8)
         (seq
@@ -129,7 +128,7 @@
         (if (or b7 (not b8)) (seq (seq p0 p7) p1 p8)
           (seq (seq p5 p4) (if (and b3 (or b6 b3)) p0 p0))))
       (seq (seq (seq p84 p7) p0 p7) (seq p9 p9) p2 p0)
-      (seq (seq (test 1) p93) (if (or b10 (and b2 b3)) p3 p3))
+      (seq p93 (if (or b10 (and b2 b3)) p3 p3))
       (if (or (not b10) b5) p10 (test 1)) p7 p1))
   (if (not (not (not (and b6 b4))))
     (if (or (not b9) (and b6 b9))

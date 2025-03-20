@@ -77,12 +77,12 @@
                     (seq
                       (if (or b8 (and (or b93 b11) (not b54))) p1 p2) p1 p5)
                     (seq p57 p9) p4 p5)
-                  (seq (seq p3 (test 1)) p1 p2) (seq p2 p9) p9 p4))))))
+                  (seq p3 p1 p2) (seq p2 p9) p9 p4))))))
       (seq
         (seq
           (seq
             (seq
-              (seq (seq (seq p4 p47) p8 p10) (seq (test 1) p8) p7 p7)
+              (seq (seq (seq p4 p47) p8 p10) p8 p7 p7)
               (seq
                 (while
                   (and (not (not (or b77 b64))) (not (and (not b84) b87)))
@@ -95,7 +95,7 @@
                 (while
                   (and (or (or b57 b91) b76 b84) (or b56 b10) (or b6 b75))
                   (seq
-                    (seq (seq (test 1) p5) p4 p2) (seq p9 p60)
+                    (seq p5 p4 p2) (seq p9 p60)
                     (if (or (or (or b55 b47) (not b78)) (and (not b75) b63))
                       p82 p4))))))
           (if (or (not (not (and b15 b49))) b96)
@@ -124,7 +124,7 @@
                 (seq (seq p4 p0) p5 p9)
                 (if (or (or (and b93 b54) b71) (or b78 b46) b61 b6)
                   (seq p13 p7) (seq p5 p4)))
-              (seq (seq p3 p16) p8 p2) (if b45 p91 p9) (test 1) p4))
+              (seq (seq p3 p16) p8 p2) (if b45 p91 p9) p4))
           (seq
             (seq
               (seq (seq p9 p2) p3 p3)
@@ -157,7 +157,7 @@
           (seq (seq p2 p8) p95 p88)
           (while
             (not (and (or (and b64 b33) (and b72 b89)) (not (or b11 b98))))
-            (seq (test 1) p4))
+            p4)
           (if (not (not (and (not (and b73 b9)) (not b95) (or b45 b37)))) 
           p9 p97))
         (if (or b32 (and b79 b79 b28))
@@ -184,7 +184,7 @@
                 (seq p3 p6))))
           (seq
             (seq (seq p0 p1) (if (or (and (or b31 b11) b56) b70) p71 p2))
-            (while (or b6 b55) (seq p90 (test 1))) p81 p80)
+            (while (or b6 b55) p90) p81 p80)
           (seq (if b66 p5 p0) p7 p56) (seq p2 p9) p6 p9)
         (seq
           (seq (seq (seq p12 p2) p19 p94) (seq p8 p3) p6 p96)
@@ -194,14 +194,13 @@
                 p5 p4)
               p2 p6)
             (if (or b37 b56) (seq p8 p4) (seq p5 p0))))
-        (if b4 (seq (seq p3 p8) p44 p4)
-          (if b90 (seq p5 (test 1)) (seq p5 p1)))
+        (if b4 (seq (seq p3 p8) p44 p4) (if b90 p5 (seq p5 p1)))
         (seq (seq p5 p3) p6 p1) (seq p24 p9) p2 p6)
       (if (not (or b70 b34))
         (if (not (not (and (not (and b72 b22)) (or b58 b53) (not b56))))
           (seq
-            (seq (if (or b51 (not b87) (not b78)) (test 1) p5) p9 p6)
-            (seq (test 1) p6) p2 p3)
+            (seq (if (or b51 (not b87) (not b78)) (test 1) p5) p9 p6) p6 p2
+            p3)
           (seq (seq (seq p7 p2) p73 p7) (seq p25 p7) (if b43 p2 p2)))
         (seq
           (seq (seq (seq p9 p9) p6 p1) (seq p2 p9) p98 p3)
@@ -212,7 +211,7 @@
             (if (or (not (not (not (and b73 b28)))) (and b18 b63) (not b1))
               p0 p3)
             (seq p9 p0))
-          (seq p6 p9) p1 (test 1))
+          (seq p6 p9) p1)
         (seq (seq p7 p8) p50 p0)
         (if
           (or (and (and b98 b45) (not b42)) (not (not (not (and b59 b79)))))
@@ -262,7 +261,7 @@
       (seq
         (seq (seq (seq p6 p81) p46 p5) (seq p8 p9) p5 p3)
         (if (not (and (and b85 (or b61 b51)) (and b63 b18) b11)) (seq p2 p39)
-          (seq p35 (test 1)))
+          p35)
         (seq p7 p3) p97 p7))
     (seq
       (seq
@@ -289,7 +288,7 @@
           (if (or (not (or b42 (not b88))) (not b39))
             (seq (seq (seq p82 p2) p7 p2) (seq p47 p9) p5 p2)
             (seq
-              (seq (seq p1 p97) (test 1) p8) (seq p2 p5)
+              (seq (seq p1 p97) p8) (seq p2 p5)
               (while (not (or (not (or b93 b56)) (and (not b90) b55 b7)))
                 (seq p2 p62))))
           (seq
@@ -299,13 +298,11 @@
               (while (or (or (and b67 b52) (and b22 b58)) b92) (seq p5 p6))
               (seq p6 p5))))
         (seq
-          (while b58
-            (seq
-              (seq (seq p6 p5) p2 p2) (if b76 (seq p66 p7) (seq p2 (test 1)))))
+          (while b58 (seq (seq (seq p6 p5) p2 p2) (if b76 (seq p66 p7) p2)))
           (if (or (not (not (not b14))) b10)
             (if (not (not (and (not (and b77 b98)) (not b98) (not b81)))) 
             p3 p1) (if (and (and (or b18 b77) (not b89)) (not b63)) p2 p7))
-          (seq p9 p2) p8 (test 1))
+          (seq p9 p2) p8)
         (while (or b57 (or b80 b33) b82 b40)
           (while b79
             (seq
@@ -326,15 +323,14 @@
       (seq
         (seq
           (seq
-            (seq (seq (seq p0 p37) (if b14 p6 p87)) (seq p7 (test 1)) p1 p40)
+            (seq (seq (seq p0 p37) (if b14 p6 p87)) p7 p1 p40)
             (seq (seq p0 p3) p7 p3)
             (if (or (and b10 (not b63)) b9) (seq p96 p0) (seq p3 p1)))
           (while (or b4 b46)
             (seq
               (seq
                 (seq (seq p1 p9) p78 p8)
-                (if (and (not (or (or b36 b11) b31 b28)) b8) p56 p5) 
-                (test 1) p25)
+                (if (and (not (or (or b36 b11) b31 b28)) b8) p56 p5) p25)
               (seq (while b7 (seq p5 p10)) p6 p8) (seq p39 p41) p6 p9)))
         (if b45
           (if (and (not b34) (or b50 (not b94)))
@@ -382,7 +378,7 @@
       (if (or (not b40) (and b56 b46))
         (if (and (not (not b60)) (not (or (not b40) (not b98)))) (seq p8 p71)
           (if (or b70 (and b78 b70) (not b79)) p1 p7))
-        (seq (seq (test 1) p5) p2 p8))
+        (seq p5 p2 p8))
       (seq (seq p73 p3) p87 p3) (if b40 (seq p1 p5) (seq p0 p9)))
     (seq
       (seq
@@ -405,7 +401,7 @@
     (seq
       (seq (seq p27 p8) p6 p2) (seq p6 p4)
       (while (or (and (or b73 b51) (not b59)) b69) (if b9 p6 p70)))
-    (seq (seq p6 p2) p11 p1) (seq (test 1) p6) p8 p9)
+    (seq (seq p6 p2) p11 p1) p6 p8 p9)
   (if (or (not (or b29 b24)) (and (and b18 b26) b91 b89))
     (seq
       (seq
@@ -430,7 +426,7 @@
                   (seq p7 p94)
                   (while (or (not b87) b14)
                     (while (and (not (and b39 (or b56 b17))) b49) p6))))
-              (seq p3 (test 1)) p88 p6)))
+              p3 p88 p6)))
         (seq
           (seq (seq (seq p1 p8) p3 p50) (seq p8 p0) p3 p1)
           (seq (seq p47 p9) p9 p1) (seq p7 p9) p2 p55)
@@ -455,17 +451,15 @@
               (seq p1 p9)))
           (while (not (not (not b32))) (seq (seq p9 p6) p2 p8)))
         (seq
-          (seq
-            (while (not (or b100 (not b13) (and b6 b76))) (seq p5 p1)) p5
-            (test 1))
-          (if b74 (seq p77 (test 1)) (seq p5 p6)))
+          (seq (while (not (or b100 (not b13) (and b6 b76))) (seq p5 p1)) p5)
+          (if b74 p77 (seq p5 p6)))
         (if (and (and (or b23 b72) (or b80 b9)) (and b90 b86) b89 b5)
           (seq p4 p83) (if b51 p7 p38))
         (if b38 (while (not b79) (seq p1 p5))
           (if (not (or (and (or b38 b73) b7 b55) (not b16))) p5 p1)))
       (seq
-        (seq (seq (seq p5 p68) p8 p0) (seq p2 (test 1)) p3 p1)
-        (seq (seq p29 p0) p3 p5) (seq p63 p8) p3 p2)
+        (seq (seq (seq p5 p68) p8 p0) p2 p3 p1) (seq (seq p29 p0) p3 p5)
+        (seq p63 p8) p3 p2)
       (seq (seq (seq p98 p0) p53 p4) (seq p2 p7) p9 p57)
       (seq (seq p3 p8) p3 p0)
       (if (not (or (not (not (not b15))) (or b15 b61) b14))
@@ -492,7 +486,7 @@
                 p9))))
         (if
           (or (not (and (and b87 b64) b88)) (not (and (or b74 b51) b51 b31)))
-          (seq (seq (seq p6 p4) p2 p3) (seq (test 1) p2) p9 p78)
+          (seq (seq (seq p6 p4) p2 p3) p2 p9 p78)
           (seq
             (while (and (not (not (or b50 b17))) (or (or b89 b71) (not b8)))
               (seq (seq p4 p89) p45 p9))
@@ -587,7 +581,7 @@
                 (seq (seq (seq p1 p8) p8 p9) (seq p9 p0) p0 p1))
               (seq
                 (if (not (not (not (and (or b56 b76) b55))))
-                  (if (not b41) p5 p4) (seq p0 (test 1)))
+                  (if (not b41) p5 p4) p0)
                 (if (and (not b47) b25) (seq p80 p9) (seq p0 p5)))
               (while b61
                 (if (not b85)
@@ -630,7 +624,7 @@
                                                       (and b46 b78) (not b40))))
                       p9 p4)
                     p6 p13)
-                  (if (and b16 b78 (not b31)) (seq p6 (test 1)) (seq p2 p2)))))))
+                  (if (and b16 b78 (not b31)) p6 (seq p2 p2)))))))
         (seq
           (seq
             (seq
@@ -666,8 +660,7 @@
               (seq
                 (if (and b85 b73 b99) (seq (seq p9 p5) p6 p77)
                   (seq (seq p4 p2) p10 p0))
-                (seq (if (not (not b36)) p0 p67) p8 p1) (seq p6 p70) 
-                (test 1) p24))))
+                (seq (if (not (not b36)) p0 p67) p8 p1) (seq p6 p70) p24))))
         (if (or b90 b93)
           (seq
             (seq
@@ -687,8 +680,7 @@
             (seq
               (seq (seq p4 p0) p9 p97)
               (while (not b86) (seq (seq p5 p72) (if b35 p8 p3))))
-            (seq (seq p10 p8) p87 p1) (while b64 (if (not b38) p6 p8)) p63
-            (test 1))
+            (seq (seq p10 p8) p87 p1) (while b64 (if (not b38) p6 p8)) p63)
           (seq
             (seq
               (seq
@@ -696,7 +688,7 @@
                   (while (and (and b16 b46) (or (and b12 b30) (not b74)))
                     (seq p4 p24))
                   p97 p7)
-                (seq p36 (test 1)) p7 p0)
+                p36 p7 p0)
               (seq (seq p6 p8) p82 p9) (seq p34 p18) p6 p47)
             (seq
               (if
@@ -776,7 +768,7 @@
             (seq
               (if (or (and (not b85) (not b84)) (or b96 b87) b39)
                 (while (and b91 b16) (seq p5 p5)) (seq p1 p3))
-              (seq p6 p3) (test 1) p4)
+              (seq p6 p3) p4)
             (seq
               (if (or b48 b84 (and b28 b8)) p83 p4)
               (while
@@ -796,7 +788,7 @@
                   (or
                     (not (or (or b66 b25) b31 b67)) (and
                                                       (not b59) (or b35 b90)))
-                  (seq (seq (test 1) p9) p55 p5)))
+                  (seq p9 p55 p5)))
               (seq (seq p3 p27) p32 p5)
               (while (and (and (and b42 b51) b9) (not (not (and b29 b68))))
                 (if b56
@@ -823,7 +815,7 @@
             (seq (seq p7 p26) p4 p7)
             (if (and b60 (not (and (and b2 b71) b90))) (seq p4 p0)
               (seq p7 p4)))
-          (seq (seq (test 1) p4) p3 p2) (seq p23 p3) p62 p5)
+          (seq p4 p3 p2) (seq p23 p3) p62 p5)
         (if (or b50 (and (or b46 b14) (not b57)))
           (if (not (and (or (not b60) b63) b7)) (seq p9 p5) (seq p2 p0))
           (if (not (and (not b93) (or b59 b36 b57))) (seq p9 p23)
@@ -938,13 +930,13 @@
               (seq
                 (if (or (or b91 (not b53)) (and (or b35 b82) (not b20))) 
                 p2 p9) p83 p9)))
-          (if b1 (seq p1 p3) (seq (test 1) p7)) (seq p4 p5) p72 p5)
+          (if b1 (seq p1 p3) p7) (seq p4 p5) p72 p5)
         (seq
           (seq
             (if b5 (seq p7 p7) (seq p0 p9))
             (if (or (not b51) (not (not (and b33 b16)))) (seq p78 p9)
               (seq p7 p6)))
-          (if b53 (seq p5 p16) (seq p3 p2)) (seq p8 (test 1)) p4 p6)
+          (if b53 (seq p5 p16) (seq p3 p2)) p8 p4 p6)
         (seq
           (seq
             (seq p8 p1)
@@ -958,9 +950,8 @@
             (seq
               (seq (if b2 p57 p83) p2 p4)
               (while b69 (if (not (or b47 (not (or b8 b9)))) p95 p3)) p3 p9)
-            (seq (seq (test 1) p9) p5 p5)
-            (if (and (and b80 (not b65)) (not b59)) (seq p7 (test 1))
-              (seq p53 p21)))
+            (seq p9 p5 p5)
+            (if (and (and b80 (not b65)) (not b59)) p7 (seq p53 p21)))
           (seq
             (seq (if (not (or b6 b99 (and b31 b8))) p6 p6) p0 p1)
             (seq p86 p3) p6 p8)
@@ -973,12 +964,11 @@
           (seq
             (seq (seq p54 p5) p1 p4)
             (if (and b54 b53) (seq p2 p7) (seq p3 p2)))
-          (seq (seq p85 p5) (test 1) p5) (seq p4 p0) p6 p9))
+          (seq (seq p85 p5) p5) (seq p4 p0) p6 p9))
       (seq
         (if (or b61 b25)
           (if b34 (seq (seq (seq p80 p2) p7 p9) (seq p1 p1) p71 p23)
-            (while (not (not b47))
-              (seq (seq (seq (test 1) p4) p4 p71) (seq p7 p3) p46 p3)))
+            (while (not (not b47)) (seq (seq p4 p4 p71) (seq p7 p3) p46 p3)))
           (while (not (and (or (or b52 b66) (not b40)) (not b8) b96 b67))
             (seq
               (if b64
@@ -1019,7 +1009,7 @@
         (seq
           (seq
             (if (not (not (not (and (not (not b27)) (not (not b36)))))) 
-            p3 p40) (test 1) p3)
+            p3 p40) p3)
           (if
             (or (not (or (or b94 b81) (and b9 b37))) (not (not (or b5 b99))))
             (seq p5 p0) (seq p9 p18)))
@@ -1049,16 +1039,13 @@
           (not (not (and (and (and b13 b99) b3) (or (or b39 b53) b31 b44))))
           (seq (seq p0 p66) p6 p8)
           (if (or (and (or b29 b1) b44 b81) (or b49 b57) b27 b8) (seq p34 p7)
-            (seq p9 (test 1)))))
-      (seq (seq (seq p1 p5) p6 p9) (seq p59 (test 1)) p31 p3)
-      (seq (seq p6 p3) p47 p6)
+            p9)))
+      (seq (seq (seq p1 p5) p6 p9) p59 p31 p3) (seq (seq p6 p3) p47 p6)
       (if (or (and (and b15 b46) b77 b50) (and b28 b22 b2)) (seq p32 p7)
         (seq p6 p62)))
     (seq
       (if (or (or (not b85) b39 b36) b71 b10) (seq (seq p2 p46) p1 p7)
-        (seq
-          (seq p3 (test 1))
-          (if (not (not (and (and b53 b8 b69) (not b15)))) p26 p0)))
+        (seq p3 (if (not (not (and (and b53 b8 b69) (not b15)))) p26 p0)))
       (seq
         (if (not b10) p1 p9)
         (while (or (or b7 b13 b7) b25 b23 b97) (if (not b53) p4 p87)))
