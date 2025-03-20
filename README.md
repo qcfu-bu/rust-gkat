@@ -124,7 +124,7 @@ peak memory used for each benchmark.
 | e3000b30p200eq | 9.61          | 28.75         | 1.15          | 1.69          | timeout   |
 | degenerate     | 185.62        | 416.42        | 0.48          | 0.63          | timeout   |
 
-#### Benchmark Peak Memory Usage (bytes)
+#### Benchmark Peak Memory Usage (megabytes)
 | Benchmark      | Mem (k1-bdd) | Mem (k2-bdd) | Mem (k1-sat) | Mem (k2-sat) | Mem (sk) |
 | -------------- | ------------ | ------------ | ------------ | ------------ | -------- |
 | e250b5p10ne    | 15.26        | 14.61        | 6.84         | 6.79         | 114.01   |
