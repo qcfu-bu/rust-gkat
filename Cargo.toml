@@ -33,3 +33,4 @@ cudd-sys = "1.0.0"
 logicng = "0.1.0-alpha.3"
 lalrpop-util = { version = "0.21.0", features = ["lexer", "unicode"] }
 clap = { version = "4.5.18", features = ["derive"] }
+pretty = "0.12.4"

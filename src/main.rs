@@ -6,7 +6,11 @@ mod syntax;
 use clap::{Parser, ValueEnum};
 use mimalloc::MiMalloc;
 use parsing::*;
-use std::fs;
+use std::{
+    fs::{self, File},
+    io::Write,
+    path::Path,
+};
 use syntax::*;
 
 #[global_allocator]
@@ -16,6 +20,7 @@ static GLOBAL: MiMalloc = MiMalloc;
 enum Kernel {
     K1, // Symbolic derivative method
     K2, // Symbolic Thompson's construction
+    Formatter,
 }
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
@@ -30,28 +35,36 @@ struct Args {
     kernel: Kernel,
     #[arg(short, long, value_enum, default_value_t = Solver::BDD)]
     solver: Solver,
-    input: String,
+    input1: String,
+    input2: Option<String>,
 }
 
 fn main() {
     let args = Args::parse();
-    let file = fs::read_to_string(args.input).expect("cannot read file");
+    let input_file = args.input1;
+    let file = fs::read_to_string(&input_file).expect("cannot read file");
     let (exp1, exp2, b) = parse(file);
-    let result = match args.kernel {
+    match args.kernel {
         Kernel::K1 => match args.solver {
             Solver::BDD => {
                 let mut gkat = BDDGkat::new();
                 let mut solver = kernel1::Solver::new();
                 let exp1 = gkat.from_exp(exp1);
                 let exp2 = gkat.from_exp(exp2);
-                solver.equiv_iter(&mut gkat, &exp1, &exp2)
+                let result = solver.equiv_iter(&mut gkat, &exp1, &exp2);
+                println!("equiv_expected = {}", b);
+                println!("equiv_result   = {}", result);
+                assert!(b == result);
             }
             Solver::SAT => {
                 let mut gkat = SATGkat::new();
                 let mut solver = kernel1::Solver::new();
                 let exp1 = gkat.from_exp(exp1);
                 let exp2 = gkat.from_exp(exp2);
-                solver.equiv_iter(&mut gkat, &exp1, &exp2)
+                let result = solver.equiv_iter(&mut gkat, &exp1, &exp2);
+                println!("equiv_expected = {}", b);
+                println!("equiv_result   = {}", result);
+                assert!(b == result);
             }
         },
         Kernel::K2 => match args.solver {
@@ -62,7 +75,10 @@ fn main() {
                 let exp2 = gkat.from_exp(exp2);
                 let (i, m) = solver.mk_automaton(&mut gkat, &exp1);
                 let (j, n) = solver.mk_automaton(&mut gkat, &exp2);
-                solver.equiv_iter(&mut gkat, i, j, &m, &n)
+                let result = solver.equiv_iter(&mut gkat, i, j, &m, &n);
+                println!("equiv_expected = {}", b);
+                println!("equiv_result   = {}", result);
+                assert!(b == result);
             }
             Solver::SAT => {
                 let mut gkat = SATGkat::new();
@@ -71,12 +87,35 @@ fn main() {
                 let exp2 = gkat.from_exp(exp2);
                 let (i, m) = solver.mk_automaton(&mut gkat, &exp1);
                 let (j, n) = solver.mk_automaton(&mut gkat, &exp2);
-                solver.equiv_iter(&mut gkat, i, j, &m, &n)
+                let result = solver.equiv_iter(&mut gkat, i, j, &m, &n);
+                println!("equiv_expected = {}", b);
+                println!("equiv_result   = {}", result);
+                assert!(b == result);
             }
         },
+        Kernel::Formatter => {
+            let output_dir = args.input2.expect("expected input2");
+            let stem = Path::new(&input_file)
+                .file_stem()
+                .unwrap()
+                .to_str()
+                .unwrap();
+            let file_name1 = format!("{}@1.c", stem);
+            let file_name2 = format!("{}@2.c", stem);
+            let mut file1 =
+                File::create(Path::new(&output_dir).join(Path::new(&file_name1))).unwrap();
+            let mut file2 =
+                File::create(Path::new(&output_dir).join(Path::new(&file_name2))).unwrap();
+            let f1 = Function {
+                name: stem.to_string(),
+                body: exp1,
+            };
+            let f2 = Function {
+                name: stem.to_string(),
+                body: exp2,
+            };
+            write!(file1, "{:?}", f1).unwrap();
+            write!(file2, "{:?}", f2).unwrap();
+        }
     };
-
-    println!("equiv_expected = {}", b);
-    println!("equiv_result   = {}", result);
-    assert!(b == result);
 }
