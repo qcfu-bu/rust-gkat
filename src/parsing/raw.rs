@@ -1,6 +1,5 @@
-use std::fmt::Debug;
-
 use pretty::{BoxAllocator, DocAllocator, DocBuilder};
+use std::fmt::Debug;
 
 #[derive(Clone)]
 pub enum BExp {
@@ -12,16 +11,94 @@ pub enum BExp {
     Not(Box<BExp>),
 }
 
-impl Debug for BExp {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let alloc = BoxAllocator;
-        let doc = self.pretty(&alloc);
-        doc.render_fmt(90, f)
-    }
-}
-
 impl BExp {
-    fn pretty<'b, D>(&'b self, alloc: &'b D) -> DocBuilder<'b, D>
+    pub fn zero() -> Self {
+        Self::Zero
+    }
+
+    pub fn one() -> Self {
+        Self::One
+    }
+
+    pub fn pbool(s: &str) -> Self {
+        Self::PBool(s.to_string())
+    }
+
+    pub fn or(&self, other: &Self) -> Self {
+        Self::Or(Box::new(self.clone()), Box::new(other.clone()))
+    }
+
+    pub fn and(&self, other: &Self) -> Self {
+        Self::And(Box::new(self.clone()), Box::new(other.clone()))
+    }
+
+    pub fn not(&self) -> Self {
+        Self::Not(Box::new(self.clone()))
+    }
+
+    pub fn test(&self) -> Exp {
+        Exp::Test(self.clone())
+    }
+
+    pub fn ifte(&self, m: &Exp, n: &Exp) -> Exp {
+        Exp::Ifte(self.clone(), Box::new(m.clone()), Box::new(n.clone()))
+    }
+
+    pub fn while_(&self, m: &Exp) -> Exp {
+        Exp::While(self.clone(), Box::new(m.clone()))
+    }
+
+    pub fn sexpr<'b, D>(&'b self, alloc: &'b D) -> DocBuilder<'b, D>
+    where
+        D: DocAllocator<'b>,
+        D::Doc: Clone,
+    {
+        match self {
+            BExp::Zero => alloc.text("0"),
+            BExp::One => alloc.text("1"),
+            BExp::PBool(x) => alloc.text(x),
+            BExp::Or(_, _) => {
+                let mut ms = vec![];
+                let mut curr = self;
+                while let BExp::Or(m, n) = curr {
+                    ms.push(m.sexpr(alloc));
+                    curr = n;
+                }
+                ms.push(curr.sexpr(alloc));
+                let body = alloc.intersperse(ms, alloc.softline());
+                alloc
+                    .text("(or")
+                    .append(alloc.softline())
+                    .append(body)
+                    .append(")")
+            }
+            BExp::And(_, _) => {
+                let mut ms = vec![];
+                let mut curr = self;
+                while let BExp::And(m, n) = curr {
+                    ms.push(m.sexpr(alloc));
+                    curr = n;
+                }
+                ms.push(curr.sexpr(alloc));
+                let body = alloc.intersperse(ms, alloc.softline());
+                alloc
+                    .text("(and")
+                    .append(alloc.softline())
+                    .append(body)
+                    .append(")")
+            }
+            BExp::Not(m) => {
+                let m = m.sexpr(alloc);
+                alloc
+                    .text("(not")
+                    .append(alloc.softline())
+                    .append(m)
+                    .append(")")
+            }
+        }
+    }
+
+    pub fn formatted<'b, D>(&'b self, alloc: &'b D) -> DocBuilder<'b, D>
     where
         D: DocAllocator<'b>,
         D::Doc: Clone,
@@ -32,23 +109,23 @@ impl BExp {
             BExp::PBool(x) => alloc.text(format!("bool({})", &x[1..])),
             BExp::Or(m, n) => {
                 let doc = m
-                    .pretty(alloc)
+                    .formatted(alloc)
                     .append(alloc.softline())
                     .append(alloc.text("||"))
                     .append(alloc.softline())
-                    .append(n.pretty(alloc));
+                    .append(n.formatted(alloc));
                 doc.parens()
             }
             BExp::And(m, n) => {
                 let doc = m
-                    .pretty(alloc)
+                    .formatted(alloc)
                     .append(alloc.softline())
                     .append(alloc.text("&&"))
                     .append(alloc.softline())
-                    .append(n.pretty(alloc));
+                    .append(n.formatted(alloc));
                 doc.parens()
             }
-            BExp::Not(m) => alloc.text("!").append(m.pretty(alloc).parens()),
+            BExp::Not(m) => alloc.text("!").append(m.formatted(alloc).parens()),
         }
     }
 }
@@ -62,16 +139,75 @@ pub enum Exp {
     While(BExp, Box<Exp>),
 }
 
-impl Debug for Exp {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let alloc = BoxAllocator;
-        let doc = self.pretty(&alloc);
-        doc.render_fmt(90, f)
-    }
-}
-
 impl Exp {
-    fn pretty<'b, D>(&'b self, alloc: &'b D) -> DocBuilder<'b, D>
+    pub fn act(s: &str) -> Self {
+        Self::Act(s.to_string())
+    }
+
+    pub fn seq(&self, other: &Self) -> Self {
+        Self::Seq(Box::new(self.clone()), Box::new(other.clone()))
+    }
+
+    pub fn skip() -> Self {
+        Self::Test(BExp::One)
+    }
+
+    pub fn fail() -> Self {
+        Self::Test(BExp::Zero)
+    }
+
+    pub fn sexpr<'b, D>(&'b self, alloc: &'b D) -> DocBuilder<'b, D>
+    where
+        D: DocAllocator<'b>,
+        D::Doc: Clone,
+    {
+        match self {
+            Exp::Act(x) => alloc.text(x),
+            Exp::Seq(_, _) => {
+                let mut ms = vec![];
+                let mut curr = self;
+                while let Exp::Seq(m, n) = curr {
+                    ms.push(m.sexpr(alloc));
+                    curr = n;
+                }
+                ms.push(curr.sexpr(alloc));
+                let body = alloc.intersperse(ms, alloc.softline());
+                alloc
+                    .text("(seq")
+                    .append(alloc.softline())
+                    .append(body)
+                    .append(")")
+            }
+            Exp::Ifte(b, m, n) => {
+                let b = b.sexpr(alloc);
+                let m = m.sexpr(alloc);
+                let n = n.sexpr(alloc);
+                alloc
+                    .text("(if")
+                    .append(alloc.softline())
+                    .append(b)
+                    .append(alloc.line())
+                    .append(m.indent(2))
+                    .append(alloc.line())
+                    .append(n.indent(2))
+                    .append(")")
+            }
+            Exp::Test(b) => alloc
+                .text("(test")
+                .append(alloc.softline())
+                .append(b.sexpr(alloc))
+                .append(")"),
+            Exp::While(b, m) => alloc
+                .text("(while")
+                .append(alloc.softline())
+                .append(b.sexpr(alloc))
+                .append(alloc.line())
+                .append(m.sexpr(alloc))
+                .append(alloc.text(")")),
+        }
+    }
+
+    pub fn formatted<'b, D>(&'b self, alloc: &'b D) -> DocBuilder<'b, D>
     where
         D: DocAllocator<'b>,
         D::Doc: Clone,
@@ -82,10 +218,10 @@ impl Exp {
                 let mut ms = vec![];
                 let mut curr = self;
                 while let Exp::Seq(m, n) = curr {
-                    ms.push(m.pretty(alloc));
+                    ms.push(m.formatted(alloc));
                     curr = n;
                 }
-                ms.push(curr.pretty(alloc));
+                ms.push(curr.formatted(alloc));
                 alloc
                     .text("{")
                     .append(alloc.line())
@@ -95,14 +231,14 @@ impl Exp {
             }
             Exp::Test(b) => alloc
                 .text("assert")
-                .append(b.pretty(alloc).parens())
+                .append(b.formatted(alloc).parens())
                 .append(";"),
             Exp::Ifte(b, m, n) => {
-                let b = b.pretty(alloc);
+                let b = b.formatted(alloc);
                 let m = alloc
                     .text("{")
                     .append(alloc.line())
-                    .append(m.pretty(alloc).indent(4))
+                    .append(m.formatted(alloc).indent(4))
                     .append(alloc.line())
                     .append("}");
                 let n = alloc
@@ -111,7 +247,7 @@ impl Exp {
                     .append(alloc.softline())
                     .append("{")
                     .append(alloc.line())
-                    .append(n.pretty(alloc).indent(4))
+                    .append(n.formatted(alloc).indent(4))
                     .append(alloc.line())
                     .append("}");
                 alloc
@@ -123,11 +259,11 @@ impl Exp {
                     .append(n)
             }
             Exp::While(b, m) => {
-                let b = b.pretty(alloc);
+                let b = b.formatted(alloc);
                 let m = alloc
                     .text("{")
                     .append(alloc.line())
-                    .append(m.pretty(alloc).indent(4))
+                    .append(m.formatted(alloc).indent(4))
                     .append(alloc.line())
                     .append("}");
                 alloc
@@ -147,16 +283,8 @@ pub struct Function {
     pub body: Exp,
 }
 
-impl Debug for Function {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        let alloc = BoxAllocator;
-        let doc = self.pretty(&alloc);
-        doc.render_fmt(90, f)
-    }
-}
-
 impl Function {
-    fn pretty<'b, D>(&'b self, alloc: &'b D) -> DocBuilder<'b, D>
+    pub fn formatted<'b, D>(&'b self, alloc: &'b D) -> DocBuilder<'b, D>
     where
         D: DocAllocator<'b>,
         D::Doc: Clone,
@@ -168,7 +296,7 @@ impl Function {
             .append("extern int bool(int);")
             .append(alloc.line())
             .append("extern void action(int);");
-        let body = self.body.pretty(alloc);
+        let body = self.body.formatted(alloc);
         header.append(alloc.line()).append(alloc.line()).append(
             alloc
                 .text("void")

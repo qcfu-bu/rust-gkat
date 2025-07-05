@@ -34,24 +34,24 @@ pub trait Gkat<B: Clone + Hash + Eq> {
     fn is_equiv(&mut self, b1: &B, b2: &B) -> bool;
 
     // Create a new BExp from parsing.
-    fn from_bexp(&mut self, raw: parsing::BExp) -> B {
+    fn from_bexp(&mut self, raw: &parsing::BExp) -> B {
         use parsing::BExp::*;
         match raw {
             Zero => self.mk_zero(),
             One => self.mk_one(),
-            PBool(s) => self.mk_var(s),
+            PBool(s) => self.mk_var(s.to_string()),
             Or(b1, b2) => {
-                let b1 = self.from_bexp(*b1);
-                let b2 = self.from_bexp(*b2);
+                let b1 = self.from_bexp(b1);
+                let b2 = self.from_bexp(b2);
                 self.mk_or(&b1, &b2)
             }
             And(b1, b2) => {
-                let b1 = self.from_bexp(*b1);
-                let b2 = self.from_bexp(*b2);
+                let b1 = self.from_bexp(b1);
+                let b2 = self.from_bexp(b2);
                 self.mk_and(&b1, &b2)
             }
             Not(b) => {
-                let b = self.from_bexp(*b);
+                let b = self.from_bexp(b);
                 self.mk_not(&b)
             }
         }
@@ -111,19 +111,19 @@ pub trait Gkat<B: Clone + Hash + Eq> {
     }
 
     // Create a new Exp from parsing.
-    fn from_exp(&mut self, raw: parsing::Exp) -> Exp<B> {
+    fn from_exp(&mut self, raw: &parsing::Exp) -> Exp<B> {
         use parsing::Exp::*;
         match raw {
-            Act(s) => self.mk_act(s),
+            Act(s) => self.mk_act(s.to_string()),
             Seq(p1, p2) => {
-                let p1 = self.from_exp(*p1);
-                let p2 = self.from_exp(*p2);
+                let p1 = self.from_exp(p1);
+                let p2 = self.from_exp(p2);
                 self.mk_seq(p1, p2)
             }
             Ifte(b, p1, p2) => {
                 let b = self.from_bexp(b);
-                let p1 = self.from_exp(*p1);
-                let p2 = self.from_exp(*p2);
+                let p1 = self.from_exp(p1);
+                let p2 = self.from_exp(p2);
                 self.mk_ifte(b, p1, p2)
             }
             Test(b) => {
@@ -132,7 +132,7 @@ pub trait Gkat<B: Clone + Hash + Eq> {
             }
             While(b, p) => {
                 let b = self.from_bexp(b);
-                let p = self.from_exp(*p);
+                let p = self.from_exp(p);
                 self.mk_while(b, p)
             }
         }

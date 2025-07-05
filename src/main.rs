@@ -2,16 +2,21 @@ mod kernel1;
 mod kernel2;
 mod parsing;
 mod syntax;
+mod testing;
 
 use clap::{Parser, ValueEnum};
 use mimalloc::MiMalloc;
 use parsing::*;
+use pretty::BoxAllocator;
 use std::{
+    alloc,
     fs::{self, File},
     io::Write,
     path::Path,
 };
 use syntax::*;
+
+use crate::testing::Generator;
 
 #[global_allocator]
 static GLOBAL: MiMalloc = MiMalloc;
@@ -21,6 +26,7 @@ enum Kernel {
     K1, // Symbolic derivative method
     K2, // Symbolic Thompson's construction
     Formatter,
+    Generator,
 }
 
 #[derive(Debug, Clone, Copy, ValueEnum)]
@@ -37,30 +43,35 @@ struct Args {
     solver: Solver,
     input1: String,
     input2: Option<String>,
+    input3: Option<String>,
+    input4: Option<String>,
 }
 
 fn main() {
     let args = Args::parse();
-    let input_file = args.input1;
-    let file = fs::read_to_string(&input_file).expect("cannot read file");
-    let (exp1, exp2, b) = parse(file);
     match args.kernel {
         Kernel::K1 => match args.solver {
             Solver::BDD => {
+                let input_file = args.input1;
+                let file = fs::read_to_string(&input_file).expect("cannot read file");
+                let (exp1, exp2, b) = parse(file);
                 let mut gkat = BDDGkat::new();
                 let mut solver = kernel1::Solver::new();
-                let exp1 = gkat.from_exp(exp1);
-                let exp2 = gkat.from_exp(exp2);
+                let exp1 = gkat.from_exp(&exp1);
+                let exp2 = gkat.from_exp(&exp2);
                 let result = solver.equiv_iter(&mut gkat, &exp1, &exp2);
                 println!("equiv_expected = {}", b);
                 println!("equiv_result   = {}", result);
                 assert!(b == result);
             }
             Solver::SAT => {
+                let input_file = args.input1;
+                let file = fs::read_to_string(&input_file).expect("cannot read file");
+                let (exp1, exp2, b) = parse(file);
                 let mut gkat = SATGkat::new();
                 let mut solver = kernel1::Solver::new();
-                let exp1 = gkat.from_exp(exp1);
-                let exp2 = gkat.from_exp(exp2);
+                let exp1 = gkat.from_exp(&exp1);
+                let exp2 = gkat.from_exp(&exp2);
                 let result = solver.equiv_iter(&mut gkat, &exp1, &exp2);
                 println!("equiv_expected = {}", b);
                 println!("equiv_result   = {}", result);
@@ -69,10 +80,13 @@ fn main() {
         },
         Kernel::K2 => match args.solver {
             Solver::BDD => {
+                let input_file = args.input1;
+                let file = fs::read_to_string(&input_file).expect("cannot read file");
+                let (exp1, exp2, b) = parse(file);
                 let mut gkat = BDDGkat::new();
                 let mut solver = kernel2::Solver::new();
-                let exp1 = gkat.from_exp(exp1);
-                let exp2 = gkat.from_exp(exp2);
+                let exp1 = gkat.from_exp(&exp1);
+                let exp2 = gkat.from_exp(&exp2);
                 let (i, m) = solver.mk_automaton(&mut gkat, &exp1);
                 let (j, n) = solver.mk_automaton(&mut gkat, &exp2);
                 let result = solver.equiv_iter(&mut gkat, i, j, &m, &n);
@@ -81,10 +95,13 @@ fn main() {
                 assert!(b == result);
             }
             Solver::SAT => {
+                let input_file = args.input1;
+                let file = fs::read_to_string(&input_file).expect("cannot read file");
+                let (exp1, exp2, b) = parse(file);
                 let mut gkat = SATGkat::new();
                 let mut solver = kernel2::Solver::new();
-                let exp1 = gkat.from_exp(exp1);
-                let exp2 = gkat.from_exp(exp2);
+                let exp1 = gkat.from_exp(&exp1);
+                let exp2 = gkat.from_exp(&exp2);
                 let (i, m) = solver.mk_automaton(&mut gkat, &exp1);
                 let (j, n) = solver.mk_automaton(&mut gkat, &exp2);
                 let result = solver.equiv_iter(&mut gkat, i, j, &m, &n);
@@ -94,6 +111,9 @@ fn main() {
             }
         },
         Kernel::Formatter => {
+            let input_file = args.input1;
+            let file = fs::read_to_string(&input_file).expect("cannot read file");
+            let (exp1, exp2, _) = parse(file);
             let output_dir = args.input2.expect("expected input2");
             let stem = Path::new(&input_file)
                 .file_stem()
@@ -114,8 +134,29 @@ fn main() {
                 name: stem.to_string(),
                 body: exp2,
             };
-            write!(file1, "{:?}", f1).unwrap();
-            write!(file2, "{:?}", f2).unwrap();
+            let alloc = BoxAllocator;
+            f1.formatted(&alloc).render(90, &mut file1).unwrap();
+            f2.formatted(&alloc).render(90, &mut file2).unwrap();
+        }
+        Kernel::Generator => {
+            let bexp_max_size: u64 = args.input1.parse().unwrap();
+            let exp_max_size: u64 = args.input2.expect("expected input2").parse().unwrap();
+            let pbool_max_count: u64 = args.input3.expect("expected input3").parse().unwrap();
+            let output_dir = args.input4.expect("expected input2");
+            let dir_name = format!("e{}b{}p{}", exp_max_size, bexp_max_size, pbool_max_count);
+            let out_path = Path::new(&output_dir).join(Path::new(&dir_name));
+            let mut generator = Generator::new(bexp_max_size, exp_max_size, pbool_max_count);
+            fs::create_dir(out_path.clone()).unwrap();
+            for i in 0..100 {
+                let alloc = BoxAllocator;
+                let (m, n) = generator.mk_exp_eq();
+                let mut file =
+                    File::create(out_path.join(Path::new(&format!("exp{i:02}.txt")))).unwrap();
+                m.sexpr(&alloc).render(90, &mut file).unwrap();
+                writeln!(file, "\n").unwrap();
+                n.sexpr(&alloc).render(90, &mut file).unwrap();
+                writeln!(file, "\n(equiv 1)").unwrap();
+            }
         }
     };
 }
