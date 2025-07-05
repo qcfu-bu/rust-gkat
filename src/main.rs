@@ -139,23 +139,34 @@ fn main() {
             f2.formatted(&alloc).render(90, &mut file2).unwrap();
         }
         Kernel::Generator => {
-            let bexp_max_size: u64 = args.input1.parse().unwrap();
-            let exp_max_size: u64 = args.input2.expect("expected input2").parse().unwrap();
+            let exp_max_size = args.input1.parse().unwrap();
+            let bexp_max_size: u64 = args.input2.expect("expected input2").parse().unwrap();
             let pbool_max_count: u64 = args.input3.expect("expected input3").parse().unwrap();
             let output_dir = args.input4.expect("expected input2");
-            let dir_name = format!("e{}b{}p{}", exp_max_size, bexp_max_size, pbool_max_count);
-            let out_path = Path::new(&output_dir).join(Path::new(&dir_name));
+            let eq_name = format!("e{}b{}p{}eq", exp_max_size, bexp_max_size, pbool_max_count);
+            let ne_name = format!("e{}b{}p{}ne", exp_max_size, bexp_max_size, pbool_max_count);
+            let eq_path = Path::new(&output_dir).join(Path::new(&eq_name));
+            let ne_path = Path::new(&output_dir).join(Path::new(&ne_name));
             let mut generator = Generator::new(bexp_max_size, exp_max_size, pbool_max_count);
-            fs::create_dir(out_path.clone()).unwrap();
+            let alloc = BoxAllocator;
+            fs::create_dir(eq_path.clone()).unwrap();
+            fs::create_dir(ne_path.clone()).unwrap();
             for i in 0..100 {
-                let alloc = BoxAllocator;
                 let (m, n) = generator.mk_exp_eq();
-                let mut file =
-                    File::create(out_path.join(Path::new(&format!("exp{i:02}.txt")))).unwrap();
-                m.sexpr(&alloc).render(90, &mut file).unwrap();
-                writeln!(file, "\n").unwrap();
-                n.sexpr(&alloc).render(90, &mut file).unwrap();
-                writeln!(file, "\n(equiv 1)").unwrap();
+                let mut eq_file =
+                    File::create(eq_path.join(Path::new(&format!("exp{i:02}.txt")))).unwrap();
+                m.sexpr(&alloc).render(90, &mut eq_file).unwrap();
+                writeln!(eq_file, "\n").unwrap();
+                n.sexpr(&alloc).render(90, &mut eq_file).unwrap();
+                writeln!(eq_file, "\n(equiv 1)").unwrap();
+
+                let (m, n) = generator.mk_exp_ne();
+                let mut ne_file =
+                    File::create(ne_path.join(Path::new(&format!("exp{i:02}.txt")))).unwrap();
+                m.sexpr(&alloc).render(90, &mut ne_file).unwrap();
+                writeln!(ne_file, "\n").unwrap();
+                n.sexpr(&alloc).render(90, &mut ne_file).unwrap();
+                writeln!(ne_file, "\n(equiv 0)").unwrap();
             }
         }
     };

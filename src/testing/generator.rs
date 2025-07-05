@@ -18,7 +18,7 @@ impl Generator {
     pub fn new(bexp_max_size: u64, exp_max_size: u64, pbool_max_count: u64) -> Self {
         Self {
             bexp_max_size,
-            exp_max_size,
+            exp_max_size: exp_max_size * 2,
             pbool_max_count,
             rng: StdRng::seed_from_u64(346608),
             metric: 0,
