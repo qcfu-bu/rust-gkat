@@ -154,7 +154,8 @@ fn main() {
             for i in 0..100 {
                 let (m, n) = generator.mk_exp_eq();
                 let mut eq_file =
-                    File::create(eq_path.join(Path::new(&format!("exp{i:02}.txt")))).unwrap();
+                    File::create(eq_path.join(Path::new(&format!("{eq_name}@{i:02}.txt"))))
+                        .unwrap();
                 m.sexpr(&alloc).render(90, &mut eq_file).unwrap();
                 writeln!(eq_file, "\n").unwrap();
                 n.sexpr(&alloc).render(90, &mut eq_file).unwrap();
@@ -162,7 +163,8 @@ fn main() {
 
                 let (m, n) = generator.mk_exp_ne();
                 let mut ne_file =
-                    File::create(ne_path.join(Path::new(&format!("exp{i:02}.txt")))).unwrap();
+                    File::create(ne_path.join(Path::new(&format!("{ne_name}@{i:02}.txt"))))
+                        .unwrap();
                 m.sexpr(&alloc).render(90, &mut ne_file).unwrap();
                 writeln!(ne_file, "\n").unwrap();
                 n.sexpr(&alloc).render(90, &mut ne_file).unwrap();
