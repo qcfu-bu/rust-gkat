@@ -19,7 +19,13 @@
  (name symkat)
  (synopsis "A short synopsis")
  (description "A longer description")
- (depends ocaml)
+ (depends
+  ocaml
+  dune
+  sedlex
+  menhir
+  yojson
+  ppx_yojson_conv)
  (tags
   ("add topics" "to describe" your project)))
 

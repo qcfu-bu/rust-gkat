@@ -26,28 +26,28 @@ E3000B30P200NE := $(subst benchmark/e3000b30p200ne/,e3000b30p200ne/,$(_E3000B30P
 E3000B30P200EQ := $(subst benchmark/e3000b30p200eq/,e3000b30p200eq/,$(_E3000B30P200EQ))
 DEGENERATE := $(subst benchmark/degenerate/,degenerate/,$(_DEGENERATE))
 
-e250b5p10ne/%.txt: benchmark/e250b5p10ne/%.txt 
-	./_build/install/default/bin/symkat $<
-e250b5p10eq/%.txt: benchmark/e250b5p10eq/%.txt 
-	./_build/install/default/bin/symkat $<
-e500b5p50ne/%.txt: benchmark/e500b5p50ne/%.txt 
-	./_build/install/default/bin/symkat $<
-e500b5p50eq/%.txt: benchmark/e500b5p50eq/%.txt 
-	./_build/install/default/bin/symkat $<
-e1000b10p100ne/%.txt: benchmark/e1000b10p100ne/%.txt 
-	./_build/install/default/bin/symkat $<
-e1000b10p100eq/%.txt: benchmark/e1000b10p100eq/%.txt 
-	./_build/install/default/bin/symkat $<
-e2000b20p200ne/%.txt: benchmark/e2000b20p200ne/%.txt 
-	./_build/install/default/bin/symkat $<
-e2000b20p200eq/%.txt: benchmark/e2000b20p200eq/%.txt 
-	./_build/install/default/bin/symkat $<
-e3000b30p200ne/%.txt: benchmark/e3000b30p200ne/%.txt 
-	./_build/install/default/bin/symkat $<
-e3000b30p200eq/%.txt: benchmark/e3000b30p200eq/%.txt 
-	./_build/install/default/bin/symkat $<
-degenerate/%.txt: benchmark/degenerate/%.txt 
-	./_build/install/default/bin/symkat $<
+e250b5p10ne/%.txt: benchmark/e250b5p10ne/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e250b5p10eq/%.txt: benchmark/e250b5p10eq/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e500b5p50ne/%.txt: benchmark/e500b5p50ne/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e500b5p50eq/%.txt: benchmark/e500b5p50eq/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e1000b10p100ne/%.txt: benchmark/e1000b10p100ne/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e1000b10p100eq/%.txt: benchmark/e1000b10p100eq/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e2000b20p200ne/%.txt: benchmark/e2000b20p200ne/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e2000b20p200eq/%.txt: benchmark/e2000b20p200eq/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e3000b30p200ne/%.txt: benchmark/e3000b30p200ne/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+e3000b30p200eq/%.txt: benchmark/e3000b30p200eq/%.txt
+	./symkat/_build/install/default/bin/symkat $<
+degenerate/%.txt: benchmark/degenerate/%.txt
+	./symkat/_build/install/default/bin/symkat $<
 
 e250b5p10ne: $(E250B5P10NE)
 e250b5p10eq: $(E250B5P10EQ)

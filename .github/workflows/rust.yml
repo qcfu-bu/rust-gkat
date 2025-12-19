@@ -2,37 +2,36 @@ name: Rust
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["master"]
   pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
   build_test_x86:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Build
-      run: cargo build --release
+      - uses: actions/checkout@v4
+      - name: Build
+        run: cargo build --release
 
-    - name: Test EQ K1-SAT
-      run: make e250b5p10eq kernel=k1 solver=sat
-    - name: Test NE K1-SAT
-      run: make e250b5p10ne kernel=k1 solver=sat
-    - name: Test EQ K2-SAT
-      run: make e250b5p10eq kernel=k2 solver=sat
-    - name: Test NE K2-SAT
-      run: make e250b5p10ne kernel=k2 solver=sat
+      - name: Test EQ K1-SAT
+        run: make -f rsgkat.make e250b5p10eq kernel=k1 solver=sat
+      - name: Test NE K1-SAT
+        run: make -f rsgkat.make e250b5p10ne kernel=k1 solver=sat
+      - name: Test EQ K2-SAT
+        run: make -f rsgkat.make e250b5p10eq kernel=k2 solver=sat
+      - name: Test NE K2-SAT
+        run: make -f rsgkat.make e250b5p10ne kernel=k2 solver=sat
 
-    - name: Test EQ K1-BDD
-      run: make e250b5p10eq kernel=k1 solver=bdd
-    - name: Test NE K1-BDD
-      run: make e250b5p10ne kernel=k1 solver=bdd
-    - name: Test EQ K2-BDD
-      run: make e250b5p10eq kernel=k2 solver=bdd
-    - name: Test NE K2-BDD
-      run: make e250b5p10ne kernel=k2 solver=bdd
+      - name: Test EQ K1-BDD
+        run: make -f rsgkat.make e250b5p10eq kernel=k1 solver=bdd
+      - name: Test NE K1-BDD
+        run: make -f rsgkat.make e250b5p10ne kernel=k1 solver=bdd
+      - name: Test EQ K2-BDD
+        run: make -f rsgkat.make e250b5p10eq kernel=k2 solver=bdd
+      - name: Test NE K2-BDD
+        run: make -f rsgkat.make e250b5p10ne kernel=k2 solver=bdd
