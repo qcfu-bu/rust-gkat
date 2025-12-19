@@ -101,7 +101,7 @@ One use the following command to run `rust-gkat` on a particular dataset:
 ``` sh
 make -f rsgkat.make [dataset] kernel=[k1|k2] solver=[bdd|sat]
 ```
-For example, `make e250b5p10eq kernel=k1 solver=bdd`
+For example, `make -f rsgkat.make e250b5p10eq kernel=k1 solver=bdd`
 runs `rust-gkat` on all expression pairs contained in dataset `e250b5p10eq`
 using kernel `k1` and solver `bdd`.
 
