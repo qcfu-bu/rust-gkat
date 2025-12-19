@@ -88,7 +88,7 @@ Sample from `input/test10.txt`:
 ```
 
 ## Performance and Evaluation
-### Benchmarks
+### Benchmarking rust-gkat
 We provide a set of benchmarks for evaluating the performance of `rust-gkat`.
 These benchmarks follow a simple naming scheme describing the expression pairs
 inside. For example, the benchmark `e250b5p10eq` contains expressions which have
@@ -97,17 +97,34 @@ of 5 (`b5`), 10 possible boolean variables (`p10`) and are known to be
 equivalent (`eq`). Benchmarks with the suffix `ne` have expression pairs which
 are known to be non-equivalent. 
 
-One can use `make [dataset] kernel=[k1|k2] solver=[bdd|sat]` to run `rust-gkat`
-on a particular dataset. For example, `make e250b5p10eq kernel=k1 solver=bdd`
+One use the following command to run `rust-gkat` on a particular dataset:
+``` sh
+make -f rsgkat.make [dataset] kernel=[k1|k2] solver=[bdd|sat]
+```
+For example, `make e250b5p10eq kernel=k1 solver=bdd`
 runs `rust-gkat` on all expression pairs contained in dataset `e250b5p10eq`
 using kernel `k1` and solver `bdd`.
 
+### Benchmarking SymKAT
+We benchmark against a patched version of [SymKAT](https://perso.ens-lyon.fr/damien.pous/symbolickat/) (sk) that allows for checking larger expressions.
+The source code for this modified version can be found in the `benchmark/symkat` directory.
+
+To build SymKAT, navigate to the `benchmark/symkat` directory and run:
+``` sh
+opam switch create . 5.0.0   # Create a local opam switch
+eval $(opam env)             # Set environment variables for the local switch
+dune build --profile release # Build SymKAT in release mode
+```
+
+To run SymKAT on a particular dataset, run the following command from the project root:
+``` sh
+make -f symkat.make [dataset]
+```
+
 ### Results
 We evaluate the performance of `rust-gkat` in terms of time and memory usage. We
-also compare `rust-gkat` with a modified version of
-[SymKAT](https://perso.ens-lyon.fr/damien.pous/symbolickat/) (sk) that allows
-for checking larger expressions. The following table lists the total time and
-peak memory used for each benchmark.
+also compare `rust-gkat` with a patched [SymKAT](https://perso.ens-lyon.fr/damien.pous/symbolickat/) (sk). 
+The following table lists the total time and peak memory used for each benchmark.
 
 #### Benchmark Total Time Usage (seconds)
 | Benchmark      | Time (k1-bdd) | Time (k2-bdd) | Time (k1-sat) | Time (k2-sat) | Time (sk) |
