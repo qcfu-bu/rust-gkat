@@ -1,0 +1,22 @@
+(seq
+  (seq
+    (if (not (not b33))
+      (seq (if (and b4 b63 b9) p65 p3) (if (and b90 (or b41 b80)) p7 p6))
+      (seq (seq p7 p59) p13 p6))
+    (if b40 p51 p26) (seq p4 p9) (if b87 p7 p8))
+  (seq
+    (if (not b100) (seq p8 p2) (seq p9 p3))
+    (if (and (and b38 b2) (or b29 b83)) (seq p0 p1) (seq p9 p47)))
+  (seq (seq p2 p5) (if (and (and b41 b85) b12) p6 p22)) (seq p2 p28) p87 p41)
+
+(seq
+  (if (not (not b33))
+    (seq (if (and b4 b63 b9) p65 p3) (if (and b90 (or b41 b80)) p7 p6))
+    (seq (seq p7 p59) p13 p6))
+  (seq (if b40 p51 p26) (seq p4 p9) (if b87 p7 p8))
+  (seq
+    (if (not b100) (seq p8 p2) (seq p9 p3))
+    (if (and (and b38 b2) (or b29 b83)) (seq p0 p1) (seq p9 p47)))
+  (seq (seq p2 p5) (if (and (and b41 b85) b12) p6 p22)) (seq p2 p28) p87 p41)
+
+(equiv 1)

@@ -1,0 +1,6 @@
+(executable
+ (public_name symkat)
+ (name main)
+ (libraries unix lib_symkat lib_safa yojson)
+ (preprocess (pps ppx_yojson_conv))
+ (flags -rectypes -open Lib_safa))

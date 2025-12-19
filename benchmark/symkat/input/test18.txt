@@ -1,0 +1,13 @@
+(seq
+  (while 1 (if (and b64 b6 b84) (seq p71 (while 1 p47)) (test 1)))
+  (seq (seq p3 p67) p5 p0)
+  (if (or (or b98 b39) b58 b87) (if (and (not b66) (not b63)) p6 p0)
+    (seq p19 p2)))
+
+(seq
+  (while 1 (seq (test (and (and b64 b6) b84)) p71 p47 (while 1 p47)))
+  (seq (seq p3 p67) p5 p0)
+  (if (or (or b98 b39) b58 b87) (if (and (not b66) (not b63)) p6 p0)
+    (seq p19 p2)))
+
+(equiv 1)

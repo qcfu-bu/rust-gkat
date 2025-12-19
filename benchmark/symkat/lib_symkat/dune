@@ -1,0 +1,9 @@
+(library
+ (name lib_symkat)
+ (libraries lib_safa sedlex menhirLib)
+ (preprocess (pps sedlex.ppx))
+ (flags -rectypes -open Lib_safa))
+
+(menhir
+ (flags --table)
+ (modules parser))
