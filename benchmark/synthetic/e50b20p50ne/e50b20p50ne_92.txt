@@ -1,0 +1,64 @@
+(seq (seq (seq (seq (seq (seq p82 p1) (if b49
+  p62
+  p38)) (seq p45 p5) p94 p55) (seq (seq p73 p47) (if (not b7)
+  p94
+  p94)) (seq p51 p22) p26 p24) (seq (seq (seq p68 p94) (while (not (not b30))
+(seq p20 p85))) (if (and (not (or (or b11 b9) b38 b15)) b34)
+  p56
+  p54) (while (not (or (not (or (and b35 b9) b23 b31)) (and b40 (or b28 b15))))
+(if (not (and b14 b1))
+  p13
+  p59))) (seq (seq p23 p79) p57 p34) (seq p93 p91) p66 p92) (seq (if (or (not (and (not
+(and b45 b12)) (or (or b33 b47) (not b33)))) b32)
+  (if (not (not (or (and b18 (or b44 b21)) b13)))
+    (seq p92 p6)
+    (seq p48 p63))
+  (seq (seq p25 p36) (if (or (and b49 b40) (and b14 b38))
+    p51
+    p41))) (if (or (or (not (and b5 b11)) (and b16 b47)) (not (and (not (or b47 b27)) b4
+b39)))
+  (seq p36 p25)
+  (while (or b44 b7 b6)
+  (if b43
+    p38
+    p38))) (if (or (not (not (not b1))) (not b8))
+  p2
+  p74) p31 p33) (if b43
+  (seq (seq p19 p49) p70 (test 1))
+  (seq (if (not (or (or b14 b31) (not (or b30 b49))))
+    p41
+    p60) p47 p16)) (seq (if (or b17 b1 b8)
+  p77
+  p12) p3 p72) (if (or (not (and (or b46 b40) (not (and b18 b2)))) (not (and (or b26 b39)
+b12)))
+  p45
+  p63) p7 p20)
+
+(seq (seq (seq (seq (seq (seq p37 p6) p70 p39) (if (or (and b13 b4) (not (and (or (not
+b14) (not b8)) b3)))
+  p78
+  p77) p75 p21) (seq (seq p25 p46) (if b36
+  p26
+  p98)) (if b11
+  (seq p45 p51)
+  (seq (test 1) p86))) (if (or (and (and b31 b22) b33) (not (and (or b16 b33) (not (not
+b41)))))
+  (seq (seq (seq p46 p26) p35 p89) (seq p74 p83) p34 p77)
+  (if (and (not (and b4 b3 b28)) (and b11 b40) (not (not b43)))
+    (seq (seq p79 p39) p20 p97)
+    (seq (seq p29 p42) p8 p80)))) (seq (seq (seq (seq p11 p4) p52 p43) (seq p81 p61) p86
+p75) (while (and (or b35 b35) (not b42))
+(if (not (not (or b41 b43)))
+  (seq p66 p63)
+  (seq p16 p98))) (if (not (or (not (not (not b1))) (not (or b48 b25))))
+  (seq p61 p60)
+  (if (and b43 b2)
+    p95
+    p28))) (if b38
+  (seq (seq p86 p82) p79 p70)
+  (seq (seq p66 p81) p87 p67)) (seq (if b40
+  p61
+  p38) (if b12
+  p37
+  p29)) (seq p67 p53) p89 p49)
+(equiv 0)

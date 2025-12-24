@@ -1,0 +1,55 @@
+(seq (seq (if (or b42 b1)
+  (seq (seq (seq (if (or b10 b15)
+    p93
+    p72) p21 p58) (while 0
+  (seq p22 p78))) (while (or (or b42 b1) b42 b1)
+  (seq (seq (if (or b10 b15)
+    p93
+    p72) p21 p58) (while 0
+  (seq p22 p78)))))
+  (test 1)) (seq (seq (seq p30 p7) (if (not (not b22))
+  p2
+  p65)) (seq p74 p0) p64 p84) (seq (seq p60 p55) p23 p98) (while (not (or b19 b48))
+(seq p86 p14))) (seq (seq (seq (seq p82 p66) p75) (if (or (and (and b20 b34 b17) (and b20
+b34) b17) (or b15 b15) b15)
+  (seq p98 p69)
+  (if (or (and (and (not b16) b16) (or b24 b37) b31 b27) (and (and (or b44 b44) b44) (or
+  (not (and b40 b43)) (and b40 b43))))
+    p55
+    p85))) (seq (if b39
+  (seq (test 1) p89)
+  (seq p35 p82)) (if (and (and b12 b2 b7) (not b27) b6 b10 b33)
+  (seq p4 p46)
+  (seq p80 p85))) (if (and b38 (not b14))
+  (seq (seq p36 p32) p4 p8)
+  (seq (if (and b34 b42)
+    p77
+    p12) p85 p68))) (while (not b12)
+(while (not b39)
+(seq (seq (seq (seq p70 p16) p34 (test 1)) (seq p64 p2) p22 p78) (while b1
+(seq (seq p36 p6) p0 p5)) (seq p37 p40) p52 p87))))
+
+(seq (seq (seq (while (or (or b42 b1) b42 b1)
+(seq (seq (if (or b10 b15)
+  p93
+  p72) p21 p58) (while (or (and (not (or b4 b4)) b4) 0)
+(seq p22 p78)))) (seq (seq (seq p30 p7) (if (not (not b22))
+  p2
+  p65)) (seq p74 p0) p64 p84) (seq (seq p60 p55) p23 p98) (while (not (or b19 b48))
+(seq p86 p14))) (seq (seq (seq p82 p66 p75) (if (or (and (and b20 b34) b17) b15)
+  (seq p98 p69)
+  (if (or (and (and 0 (or b24 b37)) b31 b27) (and 1 b44))
+    p55
+    p85))) (if b39
+  (seq (test 1) p89)
+  (seq p35 p82)) (if (and (and (and (and b12 b2) b7) (not b27)) (and b6 b10) b33)
+  (seq (test (and (and (and (and b12 b2) b7) (not b27)) (and b6 b10) b33)) p4 p46)
+  (seq p80 p85))) (if (and b38 (not b14))
+  (seq (seq p36 p32) p4 p8)
+  (seq (if (and b34 b42)
+    p77
+    p12) p85 p68))) (while (not b12)
+(while (not b39)
+(seq (seq (seq (seq p70 p16) p34 (test 1)) (seq p64 p2) p22 p78) (while b1
+(seq (seq p36 p6) p0 p5)) (seq p37 p40) p52 p87))))
+(equiv 1)

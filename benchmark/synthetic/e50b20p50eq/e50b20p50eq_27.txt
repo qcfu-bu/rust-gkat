@@ -1,0 +1,49 @@
+(if b13
+  (seq (seq (seq (if (not (or b41 b30))
+    (seq p32 p46)
+    (seq p86 p24)) (if (not b10)
+    (seq p57 p59)
+    (seq p24 p68))) (seq (seq p46 p52) p44) (seq p95 p38) (if (not (and (or (or b38 b21)
+  b36) (not b38)))
+    p56
+    p56)) (seq (seq p53 p81 p55) (seq p67 p76) p5 p9) (seq (seq p13 p32) p5) (seq p83 p57)
+  p50 p90)
+  (seq (while (not (and (and (and b9 b13) b49) (or b37 b23)))
+  (seq (test 1) (seq (seq (seq p66 p90) p87 p0) (seq p63 p91) p60 p53) (seq (seq p0 p73)
+  (if (not b18)
+    p14
+    p27)) (seq p18 p15) p25 p71)) (if (and (or (not (and (not (not b29)) (not b29))) 0)
+  (or (or b22 b16 b46) (and b30 b45) b11))
+    (if (and (and b39 b46) (or b18 b18) b43 b43)
+      (while (not (and (or (and (and b24 b41) (or b24 b26)) (and b34 b14) b13 b27) (or b42
+      b6 b27 b5) (or (not (not b26)) (not b26))))
+      (if (or (not (and (and b3 b21) (or b44 b32))) (and (or b32 b44) b3 b21))
+        (seq p44 p88)
+        (test 1)))
+      (seq (seq p43 p80) p29 (test 1)))
+    (seq (seq (seq p29 p42) p55 p36) (seq p38 p53) p49 p53))))
+
+(if b13
+  (seq (seq (seq (if (not (or b41 b30))
+    (seq p32 p46)
+    (seq p86 p24)) (if (not b10)
+    (seq p57 p59)
+    (seq p24 p68))) (seq p46 p52 p44) (seq p95 p38) p56) (seq (seq (seq p53 p81) p55) (seq
+  p67 p76) p5 p9) (seq p13 p32 p5) (seq p83 p57) p50 p90)
+  (seq (while (not (and (and b9 b13) (and b49 b49) (or b23 b37)))
+  (if (or (not (or b27 (and b4 b40))) b27 (and b4 b40))
+    (seq (seq (seq (seq p66 p90) p87 p0) (seq p63 p91) p60 p53) (seq (seq p0 p73) (if (not
+    b18)
+      p14
+      p27)) (seq p18 p15) p25 p71)
+    (test 1))) (if (and (or (or b11 (and b30 b45)) (or b22 b16) b46) 1)
+    (seq (test (and (or (or b11 (and b30 b45)) (or b22 b16) b46) 1)) (if (and (and (and
+    b46 b39) b18) b43)
+      (while (not (and (or (or (and b34 b14) b27 b13) (and (or b24 b26) b24 b41)) 1 (or
+      (or (or b6 b27) b5) b42)))
+      (seq (test 1) (if b46
+        (seq p44 p88)
+        (seq p44 p88))))
+      (seq (seq p43 p80) p29 (test 1))))
+    (seq (seq (seq p29 p42) p55 p36) (seq p38 p53) p49 p53))))
+(equiv 1)

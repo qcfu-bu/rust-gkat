@@ -1,0 +1,50 @@
+(seq (seq (seq (if (or (or b2 b25) (and (or b10 b37) b29))
+  (seq (seq p30 p80) p10 p29)
+  (seq (if (not b28)
+    p96
+    p1) p12 p45)) (seq (seq p80 p25) p69 p57) (while b47
+(seq p22 p57)) p46 p92) (seq (seq (seq p99 p34) p76 p39) (seq p40 p75) p59 p31) (seq (seq
+p26 p94) p90 p9) (seq p13 p99) (if (not (not (not (and (and (and b5 (not b2)) (or b47 b11
+b43)) b23))))
+  p69
+  p43)) (if (or b39 b38)
+  (seq (seq (seq p56 p20) p28 p71) (seq p34 p87) p51 p29)
+  (seq (seq (if (or (and b34 b42 b39) (and b49 (or b40 b19)))
+    p29
+    p14) (if b17
+    p54
+    p6)) (if b14
+    (seq p25 p96)
+    (seq p58 p82)))) (seq (seq (seq (test 1) p93) p95 p54) (seq p35 p29) p75 p64) (seq
+(seq p33 p2) p46 p81) (seq p52 p70) p46 p70)
+
+(seq (seq (if (or (or b30 (and b39 b6)) (and b40 b20) b40 b7)
+  (seq (if (not b47)
+    (seq p89 p46)
+    (seq p3 p55)) (if (and (and b6 b23 b43) (or (or b29 b46) b37))
+    p67
+    p80) p94 p69)
+  (seq (seq (seq p96 p37) p48 p22) (while b34
+  (seq p74 p66)) p78 p71)) (seq (seq (seq p70 p53) (if (or (and (and b36 b11) b38) (not
+(not (not (or b29 b42)))))
+  p94
+  p31)) (while (or b5 (not (and (and b30 b38) (or b41 b22))))
+(seq p73 p37)) (if (and (and (and b17 (or b41 b6)) (not (and b7 b36))) (not b37))
+  p10
+  p61)) (seq (if (not b20)
+  p65
+  p14) p99 p89) (seq p24 p76) p5 p49) (seq (seq (seq (seq p4 p73) (if (or (and b11 (or b7
+(and b31 b2))) (or b15 b23) (or b3 b15) (not b21))
+  p0
+  p46)) (seq p90 p90) p19 p16) (while (not (not (not (not (or (or (or b6 b48) b39 b43)
+(not (not (and (or b32 b11) b31 b35))))))))
+(seq (seq (seq p21 p6) p89 p39) (if (not b26)
+  (seq p34 p5)
+  (seq p46 p84))))) (while (or (or (not (or b21 b12)) b36) (and (or b45 b37) b42 b32))
+(while (or (not (and (and b39 b17) b17)) (not (not (and (not b3) (not b14)))))
+(seq (seq (if (or b19 b22 (and b16 (not b38)))
+  p75
+  p44) p1 p45) (while (or (not (not (not (and b23 b3)))) (or b5 b28) b37)
+(seq (seq p86 p27) p18 p30))))) (seq (while (not b27)
+(seq p67 p9)) p22 p12) (seq p96 p53) p45 p87)
+(equiv 0)

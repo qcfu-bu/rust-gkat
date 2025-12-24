@@ -1,0 +1,55 @@
+(seq (if (and b21 b21 b25)
+  (seq (seq (seq (seq p84 p83) (if b8
+    p3
+    p34)) (if (and (and b20 b18) b30)
+    (seq p1 p54)
+    (seq p83 p3))) (seq (seq p27 p82) p25 p46) (while (and (or (or b48 (not b39)) (not
+  (and b37 b39))) b4)
+  (seq p91 p78)) p55 p94)
+  (if (and (or (and b29 b49) b26) b22)
+    (seq (seq (seq p85 p82) p47 (test 1)) (seq p77 p53) p59 p15)
+    (if (or (not (or (and b32 b7) b48)) (not (not (or b44 b35))) (and b49 (not b29)))
+      (if (and (not (not (or b38 b15))) (not (not (not (or b47 b21)))))
+        (seq p43 p87)
+        (seq p79 p86))
+      (seq (seq p71 p67) p85 p71)))) (seq (if b19
+  (seq (seq p99 p98) p90 p51)
+  (while (and (and (and (and b20 b19) b13 b43) (or (not b35) b48 b23)) (not (or b40 b37))
+  (not (not (and b43 b12))))
+  (if (or (or (or (or b34 b13) b29 b11) (and (not b31) (or b5 b8))) b15)
+    (seq p55 p7)
+    (seq p93 p47)))) (seq (seq p98 p29) p45 p86) (seq p14 p60) p53 p3) (while b13
+(seq (seq (seq (seq p43 p41) p3 p18) (seq p21 p96) p75 p82) (while (and b47 b15 (or b12
+b39))
+(seq (seq (seq p18 p39) (if (not (and (not b29) b14 b47))
+  p68
+  p29)) (while b24
+p76) p21 p38)))))
+
+(if (and (or b30 b20) b22)
+  (seq (if (or b3 b40)
+    (seq (seq (seq p28 p18) p52 p39) (seq p80 p87) p79 p83)
+    (if b10
+      (seq (seq p74 p22) p73 p86)
+      (seq (seq p52 p21) p12 p17))) (while (not (or (and (not b24) (not b27)) (and b8 (not
+  b41))))
+  (seq (seq (seq (while b25
+  (seq p3 p86)) (if (or b11 b35)
+    p67
+    p91)) (seq p33 p12) (if b7
+    p37
+    p31)) (seq (seq p11 p57) p67 p43) (while (or b43 b16)
+  (if (and (and b16 b16) (not (and b49 b14)))
+    p37
+    p71)) p72 p11)))
+  (if b5
+    (seq (while (and b20 (not (or b4 b14)))
+    (seq (seq (if (and (not b37) b14 b35)
+      p32
+      p94) p79 p68) (seq p10 p81) p67 p64)) (seq (seq p26 p80) p28 p36) (if b32
+      p42
+      p66) p27 p16)
+    (seq (while b20
+    (seq (seq (seq p73 p21) p82 p61) (seq p30 p5) p17 p77)) (seq (seq p29 p3) p78 p31)
+    (seq (test 1) p76) p3 p56)))
+(equiv 0)

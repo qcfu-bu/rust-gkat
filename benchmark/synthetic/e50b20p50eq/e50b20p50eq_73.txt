@@ -1,0 +1,55 @@
+(if (or (and (not (or b11 b47)) (or b47 b11)) 0)
+  (if (or (or (not (not b21)) (not b21)) (or b2 b45 b3) b39 b1)
+    (if (or (not (or b35 b18 b14)) (or b35 b18) b14)
+      (if (not (and (or b20 b23) (or b22 b39)))
+        (seq (seq (seq p11 p92) p1 p76) (if (and (and (not (and b17 b18)) b24) (or b19
+        (not (and b21 b1))))
+          (seq p53 p97)
+          (seq p66 p80)))
+        (seq (seq p54 p2) (seq p97 p0) p77 p30))
+      (seq (seq p54 p24) (if (and b4 b4)
+        (seq p13 p95)
+        (seq p44 p91))))
+    (seq (seq (seq (seq p45 p20) p26 p70) (if 0
+      p33
+      p18) (if (and (or (not (or b47 b12)) b12 b47) (or 1 b43) (or b45 b36 b8) (or b19
+    b17))
+      p32
+      p84)) (if (and b22 b22)
+      (seq (seq (seq p43 p88) p79 p15) (seq p72 p13) p11 p69)
+      (seq (if (or (and (not (and (not b29) b29)) 0) (and (or b29 b14) b41 b21))
+        p94
+        p94) (seq p74 p76) (if (and (not (not (and b38 (and (not b24) b24) (or b35 b35))))
+      (not (and (and b38 0) b35)))
+        p72
+        p78)))))
+  (seq (seq (seq (seq p85 p65) p44 p15) (seq p43 p91) p85 p34) (seq (seq p99 p33) p84 p18)
+  (seq p29 p36) p24 p19))
+
+(if (and (or (or (or b2 b2) (or b45 b3) b1 b39) 1) 0)
+  (if (and (not (and (or b20 b23) (or b22 b39))) 1)
+    (seq (seq (seq p11 p92) p1 p76) (if (and (and (not (and b17 b18)) b24) (or b19 (not
+    (and b21 b1))))
+      (seq p53 p97)
+      (seq p66 p80)))
+    (if (or (not (or b35 b18 b14)) (or b35 b18) b14)
+      (seq (seq (seq p54 p2) p97 p0) p77 p30)
+      (seq (seq p54 p24) (if b4
+        (seq p13 p95)
+        (seq p44 p91)))))
+  (if (or (and (not (or b11 b47)) (or b47 b11)) 0)
+    (seq (seq (seq (seq p45 p20) p26 p70) (if (and (not (and b45 b21)) b21 b45)
+      p33
+      p18) (if (and (and 1 (or (or b43 b43) (not b38) b38)) (or (or b45 b36) b8) (or b17
+    b19))
+      p32
+      p84)) (if (not b22)
+      (seq (seq (if (or 0 (and (and b41 b21) (or b29 b14)))
+        p94
+        p94) p74 p76) (if 0
+        p72
+        p78))
+      (seq (seq (seq p43 p88) p79 p15) (seq p72 p13) p11 p69)))
+    (seq (seq (seq (seq p85 p65) p44 p15) (seq p43 p91) p85 p34) (seq (seq p99 p33) p84
+    p18) (seq p29 p36) p24 p19)))
+(equiv 1)

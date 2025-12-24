@@ -1,0 +1,70 @@
+(seq (seq (while b44
+(if b10
+  (if (and b33 (not (and b9 b4)) (not (and b39 b17)))
+    (seq (if b30
+      p99
+      p46) p83 p32)
+    (seq (if (not b32)
+      p74
+      p69) p82 p79))
+  (if b46
+    (if (not (and (not (not (and b43 b28))) (not (and b30 b33))))
+      (seq p31 p75)
+      (seq p64 p13))
+    (seq (seq p16 p76) p27 p37)))) (seq (seq (seq p34 p88) (if (not (or (or (and b24 b45)
+(not b3)) (not (not (and (not b18) b18 b29)))))
+  (test 1)
+  p48)) (if (and b27 b46 b46)
+  p39
+  p35) p8 p68) (seq (while b48
+(seq p71 p94)) (if b6
+  p17
+  p61)) (while (and b36 b18)
+(seq (seq p82 p69) (if (or (or (or b29 b22) b33) b28 b9 b41)
+  p54
+  p60)))) (if (or (or (and b30 b2) b6 b48) (not (and (not b12) b47 b44)))
+  (seq (seq (seq p81 p72) p57 p86) (if (or b26 (and (or b24 b26) (not b24)) (not (and b18
+  b41)))
+    (seq p87 p46)
+    (seq p2 p28)))
+  (seq (while (and b40 b28)
+  (if b46
+    (seq p3 p59)
+    (seq p92 p28))) (seq p23 p74) p1 p24)) (seq (seq (seq (test 1) p60) p75 p33) (seq p1
+p69) p99 p28) (seq (seq p2 p15) p14 p96) (seq p34 p3) (if (and (or (and b33 b11) b16 b20)
+(or b20 b38) b24)
+  p10
+  p55))
+
+(seq (if (and (not (not b36)) (or (not (and b12 b24)) b30))
+  (seq (while b3
+  (while (or b20 b13)
+  (if (not b36)
+    (seq (seq p84 p14) p20 p96)
+    (seq (seq (test 1) p12) p24 p45)))) (if (and (and (and b30 b8) b22) (or (and b10 b19)
+  b35 b5))
+    (seq p28 p8)
+    (seq p24 p36)) (seq p28 p83) (if b29
+    p57
+    p4))
+  (seq (while (and (and (not b34) (not b1)) b17)
+  (seq (seq (if b43
+    p93
+    p38) p17 p83) (seq p86 p88) p45 p77)) (if (not b45)
+    (seq (seq p34 p21) p41 p24)
+    (if (or b13 b27)
+      (seq p99 p7)
+      (if (or b5 b30)
+        p20
+        p86))))) (if (or (and (and (and b19 b10) (or b3 b20)) b5) b20)
+  (seq (seq (if b5
+    p46
+    p37) p13 p73) (seq p69 p36) p42 p85)
+  (seq (if (or (or b24 (not b16)) b8)
+    (seq p74 p6)
+    (seq p85 p18)) (seq p35 p37) (if (and b30 (not b40))
+    p48
+    p87))) (seq (seq (if b25
+  p44
+  p16) p37 p99) (seq p78 p66) p75 p5) (seq (seq p49 p38) p35 p92) (seq p43 p17) p91 p12)
+(equiv 0)

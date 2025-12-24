@@ -1,0 +1,57 @@
+(seq (seq (seq (while (not (not b9))
+(while (not b42)
+(if (or b45 b38)
+  (seq (seq p33 p71) p22 p80)
+  (seq (seq p7 p62) (if (or (or b15 b3) b3 b48)
+    p84
+    p88))))) (seq (seq p89 p71) p62 p59) (seq p9 p6) p12 p6) (seq (seq (seq p32 p76) p6
+p66) (if (and b6 b20)
+  p30
+  p89) p4 p34) (seq (seq p20 p59) p42 p85) (if (and (and b14 b21) b2)
+  (seq p78 p62)
+  (seq p11 p1))) (seq (seq (seq (seq p39 p8) p95 p61) (seq p82 p56) p27 p64) (seq (if (not
+(and (or b13 (not (and b29 b1))) (not (not b47)) b8))
+  p51
+  p72) p10 p8) (seq p4 p44) (if (and (and b21 b46) b23 b14)
+  p40
+  p40)) (if b27
+  (seq (while (or (not b39) (and b14 b21 b46))
+  (while (not b48)
+  (seq (seq p72 p42) p0 p51))) (seq p79 p64) p36 p88)
+  (seq (seq (seq p18 p51) (if (or (not (or (or (and b47 b6) b35 b37) (not (and b4 b13))))
+  (or (or b19 b37) (not b38)) (and b23 b23))
+    p71
+    p57)) (if b6
+    (seq p38 p39)
+    (while b32
+    (if (not (not (or b23 b37)))
+      p40
+      p31))))))
+
+(seq (seq (seq (seq (seq (seq p52 p54) p30 p65) (seq p66 p45) p43 p73) (while (and b28 b7
+(or b26 b28))
+(seq (if b15
+  (seq p4 p14)
+  (seq p94 p32)) (seq p91 p36) p10 p45))) (seq (seq (seq p0 p10) p15 p13) (seq p52 p23)
+(if (or (or b46 b3 b2) b43 (and b40 b9))
+  p83
+  p86)) (while (not (or (and b28 b45) (and b33 b42)))
+(seq (seq (seq p13 p75) p13 p57) (if b48
+  (seq p93 p10)
+  (seq (test 1) p90))))) (if (or (or b14 (and b21 b47)) (not (not (and (and b23 b12) (not
+b27)))))
+  (seq (seq (seq (seq p16 p7) p5 p79) (seq p38 p19) p60 p15) (seq (if b36
+    p38
+    p40) p88 p13) (if (and b40 (or (and b10 (not b43)) (not (not (not b26)))))
+    (seq p20 p41)
+    (seq p8 p55)))
+  (while (and (not (or (not b7) b7)) b36)
+  (seq (if (not (and (not (not (and b28 b13))) b15))
+    (seq (while (and (or (and b33 b29) (not b9)) (not b49) b1 b30)
+    (seq p67 p51)) p33 p51)
+    (seq (seq p38 p20) (if (not b22)
+      p45
+      p27))) (if (and (or (or b10 b20) b42) (or (or b19 b15) b41 b36))
+    (seq (seq p40 p89) p2 p57)
+    (seq (seq p6 p57) p77 p80))))))
+(equiv 0)

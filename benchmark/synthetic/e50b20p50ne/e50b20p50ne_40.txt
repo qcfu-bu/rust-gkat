@@ -1,0 +1,57 @@
+(seq (if b1
+  (seq (seq (seq (seq p4 p9) p2 p80) (if (and (and (not b21) (or b29 b11)) (not (not (and
+  b38 b47 b31))))
+    p24
+    p65) p99 p21) (if (and (and (or b10 b26) (or b12 b28)) b18)
+    (seq (seq p33 p82) p0 p42)
+    (seq (seq p27 p77) p76 p13)))
+  (seq (seq (seq (seq p37 p14) p78 p74) (seq p5 p82) p68 p73) (seq (seq (test 1) p17) p98
+  p14) (while (and (and (and b9 b1) (or b30 b3)) (or (or b28 b34) (and b28 b23)))
+  (seq (if (or b43 (not b14))
+    p52
+    p65) p30 p57)))) (seq (seq (seq (seq p56 p23) p92 p72) (if (not (and (or b45 b32) (or
+(and b43 b34) (not b13)) (not b16) (not b21)))
+  (if (and (not b47) (not (or b10 b9)) (or b48 b14))
+    p0
+    p81)
+  (seq p70 p75))) (seq (seq p82 p14) p11 p96) (while (not (and (or (and (or b3 b38) b44)
+(and (or b24 b13) (or b2 b9))) b11))
+(while (and (not b19) b46)
+p27)) p71 p96) (if (not (not (and b34 b4 b41)))
+  (seq (seq (seq p50 p10) p95 p44) (while (not b36)
+  (seq p60 (test 1))) (while (and (not (and (and b24 b2) b45)) (or (or b19 b11) (not (not
+  b12))))
+  (seq p59 p35)))
+  (seq (seq (if (and b23 b13 (not b15))
+    p94
+    p41) (if (and b25 (not (or b46 b24)))
+    p49
+    p84)) (while (or b23 b17)
+  (if (and (or (and b16 b31) b16 b14) (or b34 b21) (or b22 b16))
+    (seq p10 p1)
+    (seq p27 p91))))))
+
+(seq (seq (seq (seq (if (and (not b2) (not (and b39 b48)) b35 b44)
+  (seq p51 p7)
+  (if (and b21 b31)
+    p26
+    p25)) (seq p91 p28) p34 p84) (seq (seq p48 p89) (if (or (or (or (and b5 b10) (and b18
+b7)) b17 (and b49 b28)) b24)
+  (test 1)
+  p56)) (seq p32 p72) p76 p81) (seq (seq (if (not (or b45 b49))
+  p12
+  p46) p92 p60) (if (and b19 b31 b7 b29)
+  p95
+  p16) p89 p2) (if (or (or b29 b47) (and b38 b46))
+  (if (not (and b14 b32))
+    p24
+    p68)
+  (seq p21 p71)) (seq p4 p44) p81 p19) (seq (seq (seq (seq p77 p18) p97 p89) (seq p4 p52)
+p22 p53) (if b4
+  (seq p46 p14)
+  (seq p67 p95)) (while (and (not (and b47 b19)) b11)
+(seq p76 p85)) p8 p29) (seq (seq (seq p76 p87) p96 p9) (seq p97 p14) p60 p28) (while b11
+(if b33
+  (seq (seq p21 p54) p18 p48)
+  (seq (seq p37 p76) p0 p32))))
+(equiv 0)
